@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Prediction Model</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> <!--access the url by itself for a css file in static folder-->
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Prediction</h1>
+        <!--when submit button is pressed the form data will be sent to '/predict' url and it is sent in the form of POST request -->
+        <form id="prediction-form" action="/predict" method="POST">  
+            <label for="N">Nitrogen content:</label>
+            <input type="text" id="N" name="N" required>
+
+            <label for="P">Phosphorous content:</label>
+            <input type="text" id="P" name="P" required>
+
+            <label for="K">Potassium content:</label>
+            <input type="text" id="K" name="K" required>
+
+            <label for="temperature">Temperature:</label>
+            <input type="text" id="temperature" name="temperature" required>
+
+            <label for="humidity">Humidity:</label>
+            <input type="text" id="humidity" name="humidity" required>
+
+            <label for="ph">ph:</label>
+            <input type="text" id="ph" name="ph" required>
+
+            <label for="rainfall">Rainfall:</label>
+            <input type="text" id="rainfall" name="rainfall" required>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        <div id="prediction-result">
+        <h3>{{pred}}</h3>    <!--place holder to display the result-->
+        </div>
+    </div>
+</body>
+</html>
